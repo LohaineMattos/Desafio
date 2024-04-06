@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title> Despesas Empresariais </title>
+
+</head>
+
+<body style="background: rgb(26, 97, 59);">
+    <h1 style="text-align: center; color: rgb(255, 246, 255)">Despesas Empresariais</h1>
+    <h4 style="color: rgb(255, 246, 255)">Insira seu aluguel</h4>
+    <input type="number" id="aluguel" required />
+    <br>
+    <br>
+    <h4 style="color: rgb(255, 246, 255)">Insira sua conta de água</h4>
+    <input type="number" id="agua" required />
+    <br>
+    <br>
+    <h4 style="color: rgb(255, 246, 255)">Insira sua conta de energia</h4>
+    <input type="number" id="energiaeletrica" required />
+    <br>
+    <br>
+    <h4 style="color: rgb(255, 246, 255)">Insira sua folha de pagamento</h4>
+    <input type="number" id="folhadePagamento" required />
+    <br>
+    <br>
+    <h4 style="color: rgb(255, 246, 255)">Insira os impostos</h4>
+    <input type="number" id="impostos" required />
+    <br>
+    <br>
+    <h4 style="color: rgb(255, 246, 255)">Insira outros gastos</h4>
+    <input type="number" id="outros" required />
+    <br>
+    <br>
+    <button onclick="calcularTotal()">RESULTADO</button>
+    <p id="total"></p>
+    <p id="media"></p>
+    <p id="anual"></p>
+    <script>
+        function calcularTotal() {
+            var aluguel = parseFloat(document.getElementById('aluguel').value) || 0;
+            var agua = parseFloat(document.getElementById('agua').value) || 0;
+            var energiaeletrica = parseFloat(document.getElementById('energiaeletrica').value) || 0;
+            var folhaDePagamento = parseFloat(document.getElementById('folhadePagamento').value) || 0;
+            var impostos = parseFloat(document.getElementById('impostos').value) || 0;
+            var outros = parseFloat(document.getElementById('outros').value) || 0;
+            var total = aluguel + agua + energiaeletrica + folhaDePagamento + impostos + outros;
+            document.getElementById('total').innerHTML = "Total dos gastos: R$ " + total;
+            var calcularTotal = (aluguel + agua + energiaeletrica + folhaDePagamento + impostos + outros) / 6;
+            document.getElementById('media').innerHTML = "Total dos gastos em media: R$ " + calcularTotal;
+            var calcularMeses = calcularTotal * 12;
+            document.getElementById('anual').innerHTML = "Total de gasto anual em base da média : R$ " + calcularMeses;
+            console.log(calcularTotal);
+        }
+    </script>
+</body>
